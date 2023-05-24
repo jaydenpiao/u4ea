@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const WordCount = () => {
     const [text, setText] = useState('');
     const [wordCount, setWordCount] = useState(null);
-    const [wordFrequency, setWordFrequency] = useState({});
+    const [wordFrequency, setWordFrequency] = useState([]);
 
     const countWords = () => {
         const cleanedText = text.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
@@ -20,7 +20,8 @@ const WordCount = () => {
             }
         }
 
-        setWordFrequency(frequency);
+        const sortedFrequency = Object.entries(frequency).sort((a, b) => b[1] - a[1]);
+        setWordFrequency(sortedFrequency);
     };
 
     return (
@@ -29,7 +30,7 @@ const WordCount = () => {
             <button onClick={countWords}>Count Words</button>
             <div>Total Words: {wordCount}</div>
             <div>
-                {Object.entries(wordFrequency).map(([word, count]) => (
+                {wordFrequency.map(([word, count]) => (
                     <p key={word}>{word}: {count}</p>
                 ))}
             </div>
