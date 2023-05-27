@@ -2,3 +2,18 @@
   font-family: Arial, sans-serif;
   padding: 30px;
 }
+
+#words {
+  float: left;
+  width: 25%;
+}
+
+#u4ea {
+  float: left;
+  width: 25%;
+}
+
+#array {
+  float: right;
+  width: 50%;
+}
