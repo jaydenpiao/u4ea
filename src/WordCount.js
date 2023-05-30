@@ -42,11 +42,11 @@ const WordCount = () => {
     const [cleanseScore, setCleanseScore] = useState(0);
     const positiveCleanseWords = ["independent", "autonomous", "nonpartisan", "self-reliant", "self-sufficient", "separate", "sovereign", "absolute", "autarchic", "autarchical", "freewheeling", "individualistic", "nonaligned", "on one's own", "self-contained", "self-determining", "self-governing", "self-ruling", "self-supporting", "separated", "unaided", "unallied", "unconnected", "unconstrained", "uncontrolled", "unregimented", "independently", "independents", "sensual", "exciting", "sensuous", "sexual", "sexy", "tactile", "voluptuous", "x-rated", "animal", "animalistic", "arousing", "bodily", "carnal", "debauched", "delightful", "epicurean", "fleshly", "heavy", "hedonic", "hot", "lascivious", "lecherous", "lewd", "libidinous", "licentious", "lustful", "moving", "pleasing", "rough", "sharpened", "steamy", "stimulating", "stirring", "unchaste", "unspiritual", "adaptable", "compliant", "flexible", "malleable", "resilient", "versatile", "ac-dc", "adjustable", "all around", "alterable", "can-do", "changeable", "conformable", "convertible", "ductile", "easygoing", "hanging loose", "modifiable", "moldable", "plastic", "pliable", "pliant", "supple", "switch-hitting", "tractable", "variable", "adaptability", "unadaptable", "joy", "amusement", "bliss", "charm", "cheer", "comfort", "delight", "elation", "glee", "humor", "pride", "satisfaction", "wonder", "alleviation", "animation", "delectation", "diversion", "ecstasy", "exultation", "exulting", "felicity", "festivity", "frolic", "fruition", "gaiety", "gem", "gladness", "gratification", "hilarity", "indulgence", "jewel", "jubilance", "liveliness", "luxury", "merriment", "mirth", "prize", "rapture", "ravishment", "refreshment", "rejoicing", "revelry", "solace", "sport", "transport", "treasure", "treat", "good humor", "pride and joy", "regalement", "creative", "gifted", "ingenious", "innovative", "inventive", "original", "productive", "prolific", "visionary", "originative", "clever", "cool", "demiurgic", "deviceful", "fertile", "hip", "innovational", "innovatory", "inspired", "leading-edge", "stimulating", "way-out", "creativeness", "uncreative", "courage", "audacity", "bravery", "daring", "determination", "endurance", "fearlessness", "firmness", "fortitude", "gallantry", "grit", "heroism", "prowess", "spirit", "spunk", "tenacity", "valor", "adventurousness", "backbone", "bravura", "dash", "dauntlessness", "enterprise", "gameness", "guts", "hardihood", "intrepidity", "mettle", "nerve", "pluck", "power", "pugnacity", "rashness", "recklessness", "resolution", "stoutheartedness", "temerity", "venturesomeness", "adventuresomeness", "lion-heartedness", "élan", "friendly", "affable", "affectionate", "amiable", "amicable", "attentive", "beneficial", "chummy", "cordial", "familiar", "favorable", "good", "helpful", "loving", "loyal", "neighborly", "peaceful", "receptive", "sympathetic", "welcoming", "close", "faithful", "kind", "sociable", "tender", "thick", "attached", "auspicious", "benevolent", "benign", "buddy-buddy", "civil", "clubby", "comradely", "conciliatory", "confiding", "convivial", "fond", "genial", "kindly", "on good terms", "outgoing", "peaceable", "propitious", "solicitous", "well-disposed", "friendlier", "friendliness", "success", "accomplishment", "achievement", "advance", "benefit", "boom", "fame", "gain", "happiness", "profit", "progress", "prosperity", "realization", "triumph", "victory", "win", "arrival", "ascendancy", "attainment", "clover", "consummation", "eminence", "fortune", "fruition", "hit", "killing", "laugher", "maturation", "reward", "savvy", "sensation", "snap", "strike", "successfulness", "walkaway", "walkover", "bed of roses", "big hit", "do well", "easy street", "flying colors", "good luck", "good times", "grand slam", "gravy train", "happy days", "lap of luxury", "éclat", "nonsuccess", "successes"];
     const positiveCleansePhrases = ["on one's own", "all around", "hanging loose", "good humor", "pride and joy", "on good terms", "bed of roses", "big hit", "do well", "easy street", "flying colors", "good luck", "good times", "grand slam", "gravy train", "happy days", "lap of luxury"];
-    const negativeCleanseWords = ["rigid", "adamant", "austere", "definite", "exact", "fixed", "hard-line", "harsh", "inflexible", "intransigent", "rigorous", "solid", "stern", "stringent", "uncompromising", "unyielding", "adamantine", "bullheaded", "changeless", "chiseled", "dead set", "determined", "firm", "hard", "incompliant", "inelastic", "inexorable", "invariable", "locked-in", "obdurate", "set", "set in stone", "single-minded", "static", "strait-laced", "unalterable", "unbending", "unbreakable", "unchanging", "undeviating", "unmoving", "unpermissive", "unrelenting", "rigidity", "rigidly", "rigidness", "sensitive", "conscious", "delicate", "emotional", "hypersensitive", "keen", "nervous", "perceptive", "precise", "receptive", "responsive", "susceptible", "tense", "touchy", "tricky", "unstable", "acute", "feeling", "fine", "knowing", "psychic", "seeing", "understanding", "cognizant", "easily affected", "emotionable", "high-strung", "hung up", "impressible", "irritable", "oversensitive", "perceiving", "precarious", "reactive", "sensatory", "sensile", "sensorial", "sensory", "sentient", "supersensitive", "ticklish", "touchy feely", "tuned-in", "turned on to", "umbrageous", "wired", "sensitively", "ultrasensitive"];
+    const negativeCleanseWords = ["rigid", "adamant", "austere", "definite", "exact", "fixed", "hard-line", "harsh", "inflexible", "intransigent", "rigorous", "solid", "stern", "stringent", "uncompromising", "unyielding", "adamantine", "bullheaded", "changeless", "chiseled", "dead set", "determined", "firm", "hard", "incompliant", "inelastic", "inexorable", "invariable", "locked-in", "obdurate", "set", "single-minded", "static", "strait-laced", "unalterable", "unbending", "unbreakable", "unchanging", "undeviating", "unmoving", "unpermissive", "unrelenting", "rigidity", "rigidly", "rigidness", "sensitive", "conscious", "delicate", "emotional", "hypersensitive", "keen", "nervous", "perceptive", "precise", "receptive", "responsive", "susceptible", "tense", "touchy", "tricky", "unstable", "acute", "feeling", "fine", "knowing", "psychic", "seeing", "understanding", "cognizant", "easily affected", "emotionable", "high-strung", "hung up", "impressible", "irritable", "oversensitive", "perceiving", "precarious", "reactive", "sensatory", "sensile", "sensorial", "sensory", "sentient", "supersensitive", "ticklish", "touchy feely", "tuned-in", "turned on to", "umbrageous", "wired", "sensitively", "ultrasensitive"];
     const negativeCleansePhrases = ["dead set", "set in stone", "easily affected", "hung up", "touchy feely", "turned on to"];
 
     const [liberateScore, setLiberateScore] = useState(0);
-    const positiveLiberateWords = ["patient", "calm", "forgiving", "gentle", "quiet", "tolerant", "long-suffering", "understanding", "accommodating", "composed", "easygoing", "enduring", "even-tempered", "forbearing", "imperturbable", "indulgent", "lenient", "meek", "mild", "mild-tempered", "persevering", "persistent", "philosophic", "philosophical", "resigned", "self-possessed", "serene", "stoical", "submissive", "tranquil", "uncomplaining", "unruffled", "untiring", "patiently", "patientness", "sexual", "carnal", "erotic", "intimate", "passionate", "reproductive", "sensual", "animal", "animalistic", "bestial", "fleshly", "generative", "genital", "genitive", "loving", "procreative", "sharing", "venereal", "voluptuous", "wanton", "stable", "balanced", "calm", "durable", "fast", "lasting", "permanent", "reliable", "safe", "secure", "solid", "steady", "strong", "substantial", "abiding", "anchored", "enduring", "established", "even", "firm", "invariable", "nailed", "poised", "set", "sound", "stabile", "stalwart", "staunch", "stout", "tough", "uniform", "brick-wall", "deep-rooted", "equable", "immutable", "perdurable", "resolute", "set in stone", "solid as a rock", "stationary", "staying put", "steadfast", "sturdy", "sure", "together", "unalterable", "unchangeable", "unfluctuating", "unvarying", "unwavering", "well-built", "well-founded", "stableness", "stably", "grounded", "alive", "appreciative", "apprehensive", "attentive", "awake", "cognizant", "conscious", "familiar", "informed", "mindful", "receptive", "wise", "acquainted", "alert", "appraised", "apprised", "au courant", "cool", "enlightened", "go-go", "groovy", "heedful", "hip", "in the know", "in the picture", "into", "know the score", "know what's what", "know-how", "knowing", "latched on", "on the beam", "on to", "perceptive", "plugged in", "savvy", "sensible", "sentient", "sharp", "tuned-in", "up on", "wise to", "wised up", "with it", "energized", "activated", "alert", "animated", "spirited", "active", "dynamic", "gay", "happy", "vivacious", "instinctive", "impulsive", "ingrained", "inherent", "innate", "intuitive", "natural", "spontaneous", "visceral", "accustomed", "by seat of one's pants", "congenital", "habitual", "inborn", "instinctual", "intrinsic", "intuitional", "involuntary", "knee-jerk", "mechanical", "native", "normal", "regular", "rooted", "second-nature", "typical", "unlearned", "unmeditated", "unpremeditated", "unprompted", "unthinking", "instinctively", "secure", "protected", "defended", "guarded", "sheltered", "shielded", "immune", "impregnable", "out of harm's way", "riskless", "unassailable", "undamaged", "unharmed", "securable", "secured", "securely", "securing", "unsecurely", "passionate", "ardent", "loving", "romantic", "wistful", "amorous", "aroused", "concupiscent", "desirous", "erotic", "heavy", "hot", "lascivious", "libidinous", "lustful", "prurient", "sexy", "steamy", "stimulated", "sultry", "turned-on", "wanton", "passionately"];
+    const positiveLiberateWords = ["patient", "calm", "forgiving", "gentle", "quiet", "tolerant", "long-suffering", "understanding", "accommodating", "composed", "easygoing", "enduring", "even-tempered", "forbearing", "imperturbable", "indulgent", "lenient", "meek", "mild", "mild-tempered", "persevering", "persistent", "philosophic", "philosophical", "resigned", "self-possessed", "serene", "stoical", "submissive", "tranquil", "uncomplaining", "unruffled", "untiring", "patiently", "patientness", "sexual", "carnal", "erotic", "intimate", "passionate", "reproductive", "sensual", "animal", "animalistic", "bestial", "fleshly", "generative", "genital", "genitive", "loving", "procreative", "sharing", "venereal", "voluptuous", "wanton", "stable", "balanced", "calm", "durable", "fast", "lasting", "permanent", "reliable", "safe", "secure", "solid", "steady", "strong", "substantial", "abiding", "anchored", "enduring", "established", "even", "firm", "invariable", "nailed", "poised", "set", "sound", "stabile", "stalwart", "staunch", "stout", "tough", "uniform", "brick-wall", "deep-rooted", "equable", "immutable", "perdurable", "resolute", "solid as a rock", "stationary", "staying put", "steadfast", "sturdy", "sure", "together", "unalterable", "unchangeable", "unfluctuating", "unvarying", "unwavering", "well-built", "well-founded", "stableness", "stably", "grounded", "alive", "appreciative", "apprehensive", "attentive", "awake", "cognizant", "conscious", "familiar", "informed", "mindful", "receptive", "wise", "acquainted", "alert", "appraised", "apprised", "au courant", "cool", "enlightened", "go-go", "groovy", "heedful", "hip", "in the know", "in the picture", "into", "know the score", "know what's what", "know-how", "knowing", "latched on", "on the beam", "on to", "perceptive", "plugged in", "savvy", "sensible", "sentient", "sharp", "tuned-in", "up on", "wise to", "wised up", "with it", "energized", "activated", "alert", "animated", "spirited", "active", "dynamic", "gay", "happy", "vivacious", "instinctive", "impulsive", "ingrained", "inherent", "innate", "intuitive", "natural", "spontaneous", "visceral", "accustomed", "by seat of one's pants", "congenital", "habitual", "inborn", "instinctual", "intrinsic", "intuitional", "involuntary", "knee-jerk", "mechanical", "native", "normal", "regular", "rooted", "second-nature", "typical", "unlearned", "unmeditated", "unpremeditated", "unprompted", "unthinking", "instinctively", "secure", "protected", "defended", "guarded", "sheltered", "shielded", "immune", "impregnable", "out of harm's way", "riskless", "unassailable", "undamaged", "unharmed", "securable", "secured", "securely", "securing", "unsecurely", "passionate", "ardent", "loving", "romantic", "wistful", "amorous", "aroused", "concupiscent", "desirous", "erotic", "heavy", "hot", "lascivious", "libidinous", "lustful", "prurient", "sexy", "steamy", "stimulated", "sultry", "turned-on", "wanton", "passionately"];
     const positiveLiberatePhrases = ["set in stone", "solid as a rock", "staying put", "au courant", "in the know", "in the picture", "know the score", "know what's what", "latched on", "on the beam", "on to", "plugged in", "up on", "wise to", "wised up", "with it", "by seat of one's pants", "out of harm's way"];
     const negativeLiberateWords = ["anxiety", "angst", "apprehension", "concern", "disquiet", "doubt", "dread", "jitters", "misery", "misgiving", "mistrust", "nervousness", "panic", "restlessness", "suffering", "suspense", "trouble", "uncertainty", "unease", "uneasiness", "botheration", "butterflies", "care", "creeps", "disquietude", "distress", "downer", "drag", "fidgets", "flap", "foreboding", "fretfulness", "fuss", "heebie-jeebies", "jumps", "needles", "shakes", "shivers", "solicitude", "sweat", "watchfulness", "willies", "worriment", "all-overs", "ants in pants", "cold sweat", "goose bumps", "nail-biting", "pins and needles", "grief", "agony", "anguish", "bereavement", "despair", "discomfort", "gloom", "heartache", "heartbreak", "melancholy", "misery", "mourning", "pain", "regret", "remorse", "sadness", "sorrow", "trouble", "unhappiness", "woe", "worry", "affliction", "care", "dejection", "depression", "desolation", "despondency", "disquiet", "distress", "dole", "dolor", "grievance", "harassment", "infelicity", "lamentation", "malaise", "mortification", "mournfulness", "purgatory", "rue", "torture", "trial", "tribulation", "vexation", "wretchedness", "bemoaning", "bewailing", "deploring", "lamenting", "repining", "guilt", "culpability", "disgrace", "indiscretion", "liability", "regret", "remorse", "responsibility", "shame", "sin", "stigma", "answerability", "blameworthiness", "contrition", "crime", "criminality", "delinquency", "dereliction", "dishonor", "error", "failing", "fault", "infamy", "iniquity", "lapse", "malfeasance", "malpractice", "misbehavior", "misconduct", "misstep", "offense", "onus", "penitence", "self-condemnation", "self-reproach", "sinfulness", "slip", "solecism", "transgression", "wickedness", "wrong", "malefaction", "peccability", "fear", "alarm", "angst", "anxiety", "apprehension", "awe", "concern", "despair", "dismay", "doubt", "dread", "horror", "jitters", "panic", "scare", "suspicion", "terror", "unease", "uneasiness", "worry", "abhorrence", "agitation", "apprehensiveness", "aversion", "consternation", "cowardice", "creeps", "discomposure", "disquietude", "distress", "faintheartedness", "fearfulness", "foreboding", "fright", "funk", "misgiving", "nightmare", "phobia", "presentiment", "qualm", "reverence", "revulsion", "timidity", "trembling", "trepidation", "bête noire", "chickenheartedness", "cold feet", "cold sweat", "recreancy", "feared", "fearing", "fears", "unfearing"];
     const negativeLiberatePhrases = ["ants in pants", "cold sweat", "goose bumps", "pins and needles", "bête noire", "cold feet", "cold sweat"];
@@ -126,6 +126,97 @@ const WordCount = () => {
             }
             if (negativeLiberateWords.includes(word)) {
                 liberateScore--;
+            }
+        }
+
+        for (let phrase of [...positiveUnityPhrases, ...negativeUnityPhrases]) {
+            const count = (cleanedText.match(new RegExp(`\\b${phrase}\\b`, "g")) || []).length;
+            if (count > 0) {
+                frequency[phrase] = count;
+                if (positiveUnityPhrases.includes(phrase)) {
+                    unityScore += count;
+                }
+                if (negativeUnityPhrases.includes(phrase)) {
+                    unityScore -= count;
+                }
+            }
+        }
+
+        for (let phrase of [...positiveIntuitionPhrases, ...negativeIntuitionPhrases]) {
+            const count = (cleanedText.match(new RegExp(`\\b${phrase}\\b`, "g")) || []).length;
+            if (count > 0) {
+                frequency[phrase] = count;
+                if (positiveIntuitionPhrases.includes(phrase)) {
+                    intuitionScore += count;
+                }
+                if (negativeIntuitionPhrases.includes(phrase)) {
+                    intuitionScore -= count;
+                }
+            }
+        }
+
+        for (let phrase of [...positiveResolvePhrases, ...negativeResolvePhrases]) {
+            const count = (cleanedText.match(new RegExp(`\\b${phrase}\\b`, "g")) || []).length;
+            if (count > 0) {
+                frequency[phrase] = count;
+                if (positiveResolvePhrases.includes(phrase)) {
+                    resolveScore += count;
+                }
+                if (negativeResolvePhrases.includes(phrase)) {
+                    resolveScore -= count;
+                }
+            }
+        }
+
+        for (let phrase of [...positiveHarmonyPhrases, ...negativeHarmonyPhrases]) {
+            const count = (cleanedText.match(new RegExp(`\\b${phrase}\\b`, "g")) || []).length;
+            if (count > 0) {
+                frequency[phrase] = count;
+                if (positiveHarmonyPhrases.includes(phrase)) {
+                    harmonyScore += count;
+                }
+                if (negativeHarmonyPhrases.includes(phrase)) {
+                    harmonyScore -= count;
+                }
+            }
+        }
+
+        for (let phrase of [...positiveMiraclesPhrases, ...negativeMiraclesPhrases]) {
+            const count = (cleanedText.match(new RegExp(`\\b${phrase}\\b`, "g")) || []).length;
+            if (count > 0) {
+                frequency[phrase] = count;
+                if (positiveMiraclesPhrases.includes(phrase)) {
+                    miraclesScore += count;
+                }
+                if (negativeMiraclesPhrases.includes(phrase)) {
+                    miraclesScore -= count;
+                }
+            }
+        }
+
+        for (let phrase of [...positiveCleansePhrases, ...negativeCleansePhrases]) {
+            const count = (cleanedText.match(new RegExp(`\\b${phrase}\\b`, "g")) || []).length;
+            if (count > 0) {
+                frequency[phrase] = count;
+                if (positiveCleansePhrases.includes(phrase)) {
+                    cleanseScore += count;
+                }
+                if (negativeCleansePhrases.includes(phrase)) {
+                    cleanseScore -= count;
+                }
+            }
+        }
+
+        for (let phrase of [...positiveLiberatePhrases, ...negativeLiberatePhrases]) {
+            const count = (cleanedText.match(new RegExp(`\\b${phrase}\\b`, "g")) || []).length;
+            if (count > 0) {
+                frequency[phrase] = count;
+                if (positiveLiberatePhrases.includes(phrase)) {
+                    liberateScore += count;
+                }
+                if (negativeLiberatePhrases.includes(phrase)) {
+                    liberateScore -= count;
+                }
             }
         }
 
