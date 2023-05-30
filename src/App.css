@@ -13,7 +13,12 @@
   width: 25%;
 }
 
+#phrases {
+  float: left;
+  width: 25%;
+}
+
 #array {
   float: right;
-  width: 50%;
+  width: 25%;
 }
