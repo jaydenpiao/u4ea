@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import './WordCount.css';
 
 const WordCount = () => {
     const [text, setText] = useState('');
     const [wordCount, setWordCount] = useState(null);
     const [wordFrequency, setWordFrequency] = useState([]);
+
+    // getting lyrics by title and artist
+    const [artist, setArtist] = useState('');
+    const [title, setTitle] = useState('');
+    const fetchLyrics = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3000/lyrics?artist=${artist}&title=${title}`);
+            setText(response.data);
+        } catch (error) {
+            console.error('Failed to fetch lyrics: ', error);
+        }
+    };
 
     // for creating string array, used for creating u4ea word library
     const [stringText, setStringText] = useState('');
@@ -234,32 +248,76 @@ const WordCount = () => {
     };
 
     return (
-        <div>
-            <textarea rows="10" cols="50" value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text here..."></textarea>
-            <button onClick={countWords}>Count Words</button>
-            <div>Total Words: {wordCount}</div>
-            <div id={"words"}>
-                {wordFrequency.map(([word, count]) => (
-                    <p key={word}>{word}: {count}</p>
-                ))}
+        <div className="container">
+            <div className="maxContainer">
+                <div>
+                    <h2 className="title">
+                        U4Ea Song Analyzer
+                    </h2>
+                </div>
+                <textarea rows="10" cols="50" value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text here..."></textarea>
+                <input type="text" value={artist} onChange={(e) => setArtist(e.target.value)} placeholder="Enter artist name..."/>
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title name..."/>
+                <button onClick={fetchLyrics}>Fetch Lyrics</button>
+                <button onClick={countWords}>Count Words</button>
+                <div className="scoreContainer">
+                    <div className="scoreHeader">
+                        <div className="scoreText">
+                            Total Words
+                        </div>
+                        <div className="m1-4">
+                            {wordCount}
+                        </div>
+                    </div>
+                </div>
+                <div className="scoreContainer">
+                    <div className="scoreHeader">
+                        <div className="scoreText">
+                            U4Ea Score
+                        </div>
+                        <div className="m1-4">
+                            <p>
+                                Unity Score: {unityScore} <br />
+                                Intuition Score: {intuitionScore} <br />
+                                Resolve Score: {resolveScore} <br />
+                                Harmony Score: {harmonyScore} <br />
+                                Miracles Score: {miraclesScore} <br />
+                                Cleanse Score: {cleanseScore} <br />
+                                Liberate Score: {liberateScore}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="wordFrequencyContainer">
+                    {wordFrequency.map(([word, count]) => (
+                        <p key={word} className="wordFrequency">{word}: {count}</p>
+                    ))}
+                </div>
             </div>
-            <div id={"score"}>
-                <p>
-                Unity Score: {unityScore} <br />
-                Intuition Score: {intuitionScore} <br />
-                Resolve Score: {resolveScore} <br />
-                Harmony Score: {harmonyScore} <br />
-                Miracles Score: {miraclesScore} <br />
-                Cleanse Score: {cleanseScore} <br />
-                Liberate Score: {liberateScore}
-                </p>
-            </div>
-            <div id={"array"}>
-                [{stringText}];
-            </div>
-            <div id={"phrases"}>
-                Phrase Library: [{filterPhrases([...negativeLiberateWords]).map(word =>`"${word}"`).join(', ')}];
-            </div>
+            {/*original, can help get libraries*/}
+            {/*<div>Total Words: {wordCount}</div>*/}
+            {/*<div id={"words"}>*/}
+            {/*    {wordFrequency.map(([word, count]) => (*/}
+            {/*        <p key={word}>{word}: {count}</p>*/}
+            {/*    ))}*/}
+            {/*</div>*/}
+            {/*<div id={"score"}>*/}
+            {/*    <p>*/}
+            {/*    Unity Score: {unityScore} <br />*/}
+            {/*    Intuition Score: {intuitionScore} <br />*/}
+            {/*    Resolve Score: {resolveScore} <br />*/}
+            {/*    Harmony Score: {harmonyScore} <br />*/}
+            {/*    Miracles Score: {miraclesScore} <br />*/}
+            {/*    Cleanse Score: {cleanseScore} <br />*/}
+            {/*    Liberate Score: {liberateScore}*/}
+            {/*    </p>*/}
+            {/*</div>*/}
+            {/*<div id={"array"}>*/}
+            {/*    [{stringText}];*/}
+            {/*</div>*/}
+            {/*<div id={"phrases"}>*/}
+            {/*    Phrase Library: [{filterPhrases([...negativeLiberateWords]).map(word =>`"${word}"`).join(', ')}];*/}
+            {/*</div>*/}
         </div>
     );
 };
